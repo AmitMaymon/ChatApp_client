@@ -1,0 +1,49 @@
+/* Sidebar */
+.side-panel {
+    position: fixed;
+    width: 20%;
+    /* Use a percentage instead of a fixed pixel value */
+    height: 100%;
+    overflow: auto;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    padding: 2%;
+    /* Use a percentage instead of a fixed pixel value */
+}
+
+
+
+
+/* Chat window */
+.chat-window {
+    position: relative;
+    margin-left: 24.5%;
+    /* Adjust this value to match the width of the sidebar plus some padding */
+    height: calc(100% - 10vh);
+    /* Use viewport height units instead of pixels */
+    max-height: 80vh;
+    overflow: auto;
+    padding: 2%;
+    /* Use a percentage instead of a fixed pixel value */
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Message input */
+.message-input {
+    position: fixed;
+    bottom: 0;
+    left: 24.5%;
+    /* Adjust this value to match the width of the sidebar plus some padding */
+    width: calc(78%);
+    /* Adjust this value to match the new left value */
+    height: 8vh;
+    /* Use viewport height units instead of pixels */
+    padding: 1%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    /* Add some border radius to make the input box stand out */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add some box shadow to make the input box stand out */
+}
