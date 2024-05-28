@@ -17,7 +17,7 @@ function Login(props) {
     useEffect(() => {
         const token = localStorage.getItem('token')
         if (token && !props.loggedOut) {
-            const newSocket = io('https://chatapp-server-x9b6.onrender.com:10000', {
+            const newSocket = io('https://chatapp-server-x9b6.onrender.com', {
                 transports: ['websocket'],
                 query: {
                     token: token
@@ -47,7 +47,7 @@ function Login(props) {
             return
         }
 
-        const newSocket = io('https://chatapp-server-x9b6.onrender.com:10000', {
+        const newSocket = io('https://chatapp-server-x9b6.onrender.com', {
             transports: ['websocket'],
             query: {
                 username: username,
@@ -96,7 +96,7 @@ function Login(props) {
             setConfirmPasswordErrors(validationResult.getErrors().confirmPassword)
             return
         }
-        const newSocket = io('https://chatapp-server-x9b6.onrender.com:10000', {
+        const newSocket = io('https://chatapp-server-x9b6.onrender.com', {
             transports: ['websocket'],
             query: {
                 username: username,
