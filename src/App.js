@@ -3,6 +3,12 @@ import Chat from "./components/Chat";
 import Login from "./components/Login";
 
 
+/**
+ * The main component of the application.
+ *
+ * @returns {JSX.Element} The rendered App component.
+ */
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [socket, setSocket] = useState(null);

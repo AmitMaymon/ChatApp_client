@@ -2,6 +2,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Chat.css'
 
 
+/**
+ * Represents the Chat component.
+ * @param {Object} props - The props object.
+ * @returns {JSX.Element} The JSX element representing the Chat component.
+ */
 function Chat(props) {
     const [rooms, setRooms] = useState([])
     const [users, setUsers] = useState([])
@@ -102,13 +107,22 @@ function Chat(props) {
 
     }, [])
 
+    /**
+     * Handles the creation of a new chat room.
+     */
     const handleCreateRoom = () => {
         props.socket.emit('CREATE_ROOM', { room_name: createRoomName });
         props.socket.emit('GET_ROOMS', (rooms) => { setRooms(rooms) });
 
     }
 
-    // Todo  - handle sending notification event to the server
+    /**
+     * Handles the send event when the user presses the Enter key.
+     * Emits a 'SEND_MESSAGE' event to the socket with the message, room ID, username, user ID, and isDM flag.
+     * Clears the message input field and emits a 'NOTIFICATION' event to the socket.
+     *
+     * @param {Event} e - The keydown event object.
+     */
     const handleSend = (e) => {
         if (e.key === 'Enter') {
             props.socket.emit('SEND_MESSAGE', {
@@ -132,6 +146,11 @@ function Chat(props) {
         }
     }
 
+    /**
+     * Handles the switching of channels in the chat.
+     * 
+     * @param {Object} room - The room object representing the channel to switch to.
+     */
     const handleSwitchChannel = (room) => {
         setCurrentChannel(room.room_id)
         currentChatRef.current = room.room_id;
@@ -145,6 +164,11 @@ function Chat(props) {
 
     }
 
+    /**
+     * Callback function for handling direct message (DM) events.
+     * @param {Object} data - The data received from the DM event.
+     */
+
     const dmCallback = (data) => {
         setCurrentChannel(data.dm_id)
         currentChatRef.current = data.dm_id;
@@ -157,6 +181,12 @@ function Chat(props) {
         });
     }
 
+    /**
+     * Handles the action of creating a direct message (DM) with a user.
+     * 
+     * @param {Object} user - The user object representing the user to create a DM with.
+     */
+    
     const handleDms = (user) => {
 
         if (props.user.user_id === user.user_id) return;

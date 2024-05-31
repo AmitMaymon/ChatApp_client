@@ -1,5 +1,10 @@
 import { create, test, enforce } from 'vest';
 
+/**
+ * Creates a test suite for validating user input data.
+ *
+ * @param {Object} data - The input data to be validated.
+ */
 const suite = create((data = {}) => {
     test('username', 'Username is required.', () => {
         enforce(data.username).isNotBlank()

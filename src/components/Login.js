@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client'
 import suite from './suite'
 
+/**
+ * Renders a login component with login and registration functionality.
+ *
+ * @param {Object} props - The component props.
+ * @returns {JSX.Element} The rendered login component.
+ */
+
 function Login(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -36,6 +43,9 @@ function Login(props) {
 
 
 
+    /**
+     * Handles the login functionality.
+     */
     const handleLogin = () => {
         const validationResult = suite({ username: username, password: password, isRegister: false })
         if (validationResult.isValid()) {
@@ -66,6 +76,10 @@ function Login(props) {
 
 
 
+    /**
+     * Checks the login data and performs necessary actions based on the result.
+     * @param {Object} data - The login data object.
+     */
     const loginCheck = (data) => {
         console.log('LOGIN CHECK', data);
         if (data.success) {
@@ -85,6 +99,9 @@ function Login(props) {
 
 
 
+    /**
+     * Handles the registration process.
+     */
     const handleRegister = () => {
         const validationResult = suite({ username: username, password: password, confirmPassword: password2, isRegister: true })
         if (validationResult.isValid()) {
