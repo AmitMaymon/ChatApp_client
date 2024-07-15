@@ -1,4 +1,4 @@
-#Web Chat Application
+# Web Chat Application
 I created a chat application 
 the client side is in this repository 
 and the server side is in the backend repository.
