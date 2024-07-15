@@ -1,4 +1,20 @@
-# Getting Started with Create React App
+#Web Chat Application
+I created a chat application 
+the client side is in this repository 
+and the server side is in the backend repository.
+
+The chat application is built with react and express
+with socket.io.
+let me know what you think :).
+
+there is also a live demo on:
+https://chatappclient.netlify.app
+
+(if it doesnt respond after you try to register/login wait a few minutes and try again,
+because the server might need to boot back up due to inactivity)
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
